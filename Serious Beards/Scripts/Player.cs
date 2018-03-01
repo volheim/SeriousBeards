@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Serious_Beards
 {
-    class Player : Character
+    public class Player : Character
     {
         Vector2 position;
         Texture2D sprite;
@@ -26,7 +26,7 @@ namespace Serious_Beards
         static int points;
         float invulnerabilityTime;
 
-        public Player(Vector2 position)
+        public Player(Vector2 position) : base(position, sprite)
         {
             this.position = position;
         } 

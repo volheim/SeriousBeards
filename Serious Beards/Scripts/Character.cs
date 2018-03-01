@@ -9,8 +9,10 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Serious_Beards
 {
-    class Character : GameObject
+    public class Character : GameObject
     {
+        GameObject go;
+
         Vector2 position;
         Texture2D sprite;
 
@@ -22,7 +24,12 @@ namespace Serious_Beards
         Vector2 moveTarget;
         Rectangle attackRectangle;
 
-
+        public Character(Vector2 position, Texture2D sprite) : base(position, sprite)
+        {
+            this.position = position;
+            this.sprite = sprite;
+            
+        }
 
         /// <summary>
         /// Allows the game to run logic such as updating the world,

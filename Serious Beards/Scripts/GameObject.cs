@@ -9,10 +9,10 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Serious_Beards
 {
-    class GameObject : Game1
+    public class GameObject : Game1
     {
-        Vector2 position;
-        Texture2D sprite;
+        public Vector2 position;
+        public Texture2D sprite;
 
         public GameObject(Vector2 position, Texture2D sprite)
         {
