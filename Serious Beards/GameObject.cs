@@ -11,14 +11,21 @@ namespace Serious_Beards
 {
     public class GameObject : GameWorld
     {
-        public Vector2 position;
+        private Transform transform;
         public Texture2D sprite;
 
-        public GameObject(Vector2 position, Texture2D sprite)
+        public Transform Transform
         {
-            this.position = position;
-            this.sprite = sprite;
+            get { return transform; }
+            set { transform = value; }
         }
+
+
+        public GameObject()
+        {
+            this.transform = new Transform(this, Vector2.Zero);
+        }
+
 
         /// <summary>
         /// Allows the game to run logic such as updating the world,

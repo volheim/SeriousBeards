@@ -42,11 +42,15 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Attack.cs" />
+    <Compile Include="IAnimationStrategy.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="CollisionTiles.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="GameWorld.cs" />
     <Compile Include="GameObject.cs" />
+    <Compile Include="Transform.cs" />
+    <Compile Include="Walk.cs" />
     <Compile Include="Pickup.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
