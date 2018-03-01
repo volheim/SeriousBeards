@@ -7,12 +7,14 @@ namespace Serious_Beards
     /// <summary>
     /// This is the main type for your game.
     /// </summary>
-    public class Game1 : Game
+    public class GameWorld : Game
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        public Game1()
+        World world;
+
+        public GameWorld()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
@@ -28,6 +30,14 @@ namespace Serious_Beards
         {
             // TODO: Add your initialization logic here
 
+            //Går ind og kikker på størrelsen af ens GraphicsDevice på den enkelte computer og udvider skærmen til dens bredte og højde.
+            graphics.PreferredBackBufferHeight = GraphicsDevice.DisplayMode.Height;
+            graphics.PreferredBackBufferWidth = GraphicsDevice.DisplayMode.Width;
+            graphics.ApplyChanges();
+
+            //Skaber en ny verden
+            world = new World();
+
             base.Initialize();
         }
 
@@ -39,6 +49,19 @@ namespace Serious_Beards
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            Tile.Content = Content;
+
+            world.GenerateMap(new int[,]
+            {
+                //{ 1,1,1,1,1,1},
+                //{ 1,1,1,1,1,1},
+                //{ 1,1,1,1,1,1},
+                //{ 1,1,1,1,1,1},
+                { 1,1,1,1,1,1},
+                { 1,1,1,1,1,1},
+                { 1,1,1,1,1,1},
+            }, 64); //Size er størrelsen på tiles i pixel aka 64 hen a Y aksen og X aksen som bruges i World generation
 
             // TODO: use this.Content to load your game content here
         }
@@ -75,9 +98,13 @@ namespace Serious_Beards
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
+            spriteBatch.Begin();
+            world.Draw(spriteBatch);
+            spriteBatch.End();
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);
         }
+
     }
 }

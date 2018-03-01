@@ -45,7 +45,7 @@
     <Compile Include="Character.cs" />
     <Compile Include="CollisionTiles.cs" />
     <Compile Include="Enemy.cs" />
-    <Compile Include="Game1.cs" />
+    <Compile Include="GameWorld.cs" />
     <Compile Include="GameObject.cs" />
     <Compile Include="Pickup.cs" />
     <Compile Include="Player.cs" />

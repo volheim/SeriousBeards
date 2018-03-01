@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -53,8 +54,13 @@ namespace Serious_Beards
                     width = (x + 1) * size;
                     height = (y + 1) * size;
                 }
-
-
+        }
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            foreach (CollisionTiles tile in collisionTiles)
+            {
+                tile.DrawTile(spriteBatch);
+            }
         }
 
     }
