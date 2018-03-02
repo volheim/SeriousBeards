@@ -12,7 +12,8 @@ namespace Serious_Beards
     public class GameObject : GameWorld
     {
         private Transform transform;
-        public Texture2D sprite;
+        
+        private SpriteRender sprite;
 
         public Transform Transform
         {

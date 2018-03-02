@@ -8,7 +8,7 @@ namespace Serious_Beards
 {
     class Walk:IAnimationStrategy
     {
-        private Animatior animatior; //Til animation
+        private Animator animatior; //Til animation
         private Transform transform; //Til movement af vores player
 
         public Walk(Transform transform, Animator animator)
@@ -17,7 +17,7 @@ namespace Serious_Beards
         }
         public void Execute(ref Directoin directoin)
         {
-            animatior.PlayAnimation("Walk" + directoin);
+            animator.PlayAnimation("Walk" + directoin);
         }
     }
 }

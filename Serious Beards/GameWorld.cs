@@ -63,6 +63,11 @@ namespace Serious_Beards
                 { 1,1,1,1,1,1},
             }, 64); //Size er størrelsen på tiles i pixel aka 64 hen a Y aksen og X aksen som bruges i World generation
 
+            GameObject gameObject = new GameObject(); //Laver et nyt gameobject
+
+            gameObject.add(new SpriteRender(gameObject, "Player", 2));
+
+            gameObject.Add(gameObject);
             // TODO: use this.Content to load your game content here
         }
 
@@ -100,6 +105,11 @@ namespace Serious_Beards
 
             spriteBatch.Begin();
             world.Draw(spriteBatch);
+
+            foreach(GameObject gameObject in gameObject)
+            {
+                gameObject.Draw(spriteBatch);
+            }
             spriteBatch.End();
             // TODO: Add your drawing code here
 
