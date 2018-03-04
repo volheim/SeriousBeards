@@ -6,14 +6,17 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Content;
 
 namespace Serious_Beards
 {
-    public class GameObject : GameWorld
+    class GameObject : GameWorld,Component,ILoadable,IDrawable
     {
         private Transform transform;
         
         private SpriteRender sprite;
+
+        private List<Component> componentlist; //Skal indeholde de komponeneter der skal loades ud.
 
         public Transform Transform
         {
@@ -21,13 +24,32 @@ namespace Serious_Beards
             set { transform = value; }
         }
 
+        public void AddComponent(Component component)
+        {
+
+        }
+
+        public Component GetComponent(string component)
+        {
+            
+        }
 
         public GameObject()
         {
             this.transform = new Transform(this, Vector2.Zero);
+            
         }
 
-
+        public void LoadContent(ContentManager content)
+        {
+            foreach (Component component in componentlist)
+            {
+                if (component is ILoadable)
+                {
+                    (component as ILoadable).LoadContent(content);
+                }
+            }
+        }
         /// <summary>
         /// Allows the game to run logic such as updating the world,
         /// checking for collisions, gathering input, and playing audio.
@@ -40,6 +62,8 @@ namespace Serious_Beards
             base.Update(gameTime);
         }
 
+
+
         /// <summary>
         /// This is called when the game should draw itself.
         /// </summary>
@@ -47,6 +71,15 @@ namespace Serious_Beards
         protected override void Draw(GameTime gameTime)
         {
             // TODO: Add your drawing code here
+            {
+                foreach (Component component in componentlist)
+                {
+                    if (component is IDrawable)
+                    {
+                        (component as IDrawable).LoadContent(content);
+                    }
+                }
+            }
 
             base.Draw(gameTime);
         }

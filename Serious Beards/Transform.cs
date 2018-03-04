@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Serious_Beards
 {
-    public class Transform //Skal være public ellers kan man ikke nå den i GameObject
+    class Transform //Skal være public ellers kan man ikke nå den i GameObject
     {
         private Vector2 position;
 

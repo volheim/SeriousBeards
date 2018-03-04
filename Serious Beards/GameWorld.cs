@@ -65,7 +65,7 @@ namespace Serious_Beards
 
             GameObject gameObject = new GameObject(); //Laver et nyt gameobject
 
-            gameObject.add(new SpriteRender(gameObject, "Player", 2));
+            gameObject.Add(new SpriteRender(gameObject, "Player", 2));
 
             gameObject.Add(gameObject);
             // TODO: use this.Content to load your game content here
