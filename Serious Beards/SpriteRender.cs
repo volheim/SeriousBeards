@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Serious_Beards
 {
-    class SpriteRender:ILoadable,IDrawable //Skal sikre at vi kan tegne vores objekter fra GameObject
+    class SpriteRender:Component,ILoadable,IDrawable //Skal sikre at vi kan tegne vores objekter fra GameObject
     {
         private Rectangle spriteRectangle;
         private Texture2D sprite;

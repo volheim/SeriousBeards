@@ -76,7 +76,7 @@ namespace Serious_Beards
                 {
                     if (component is IDrawable)
                     {
-                        (component as IDrawable).LoadContent(content);
+                        (component as IDrawable).Draw(spriteBatch);
                     }
                 }
             }

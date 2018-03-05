@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using System.Collections.Generic;
 
 namespace Serious_Beards
 {
@@ -11,6 +12,7 @@ namespace Serious_Beards
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        private List<GameObject> gameObjects;
 
         World world;
 
@@ -65,9 +67,9 @@ namespace Serious_Beards
 
             GameObject gameObject = new GameObject(); //Laver et nyt gameobject
 
-            gameObject.Add(new SpriteRender(gameObject, "Player", 2));
+            gameObject.AddComponent(new SpriteRender(gameObject, "Player", 2));
 
-            gameObject.Add(gameObject);
+            gameObjects.Add(gameObject);
             // TODO: use this.Content to load your game content here
         }
 
@@ -106,9 +108,9 @@ namespace Serious_Beards
             spriteBatch.Begin();
             world.Draw(spriteBatch);
 
-            foreach(GameObject gameObject in gameObject)
+            foreach(GameObject gameObject in gameObjects)
             {
-                gameObject.Draw(spriteBatch);
+                gameObjects.Draw(spriteBatch);
             }
             spriteBatch.End();
             // TODO: Add your drawing code here
