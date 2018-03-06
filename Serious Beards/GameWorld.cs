@@ -13,6 +13,7 @@ namespace Serious_Beards
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         private List<GameObject> gameObjects;
+        private float deltatime;
 
         World world;
 
@@ -93,6 +94,8 @@ namespace Serious_Beards
                 Exit();
 
             // TODO: Add your update logic here
+
+            deltatime = (float)gameTime.ElapsedGameTime.TotalSeconds; //Skal sikre at vores movement er independent af frame rate
 
             base.Update(gameTime);
         }

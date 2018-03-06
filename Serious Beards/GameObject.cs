@@ -37,7 +37,7 @@ namespace Serious_Beards
         public GameObject()
         {
             this.transform = new Transform(this, Vector2.Zero);
-            
+            AddComponent(transform);
         }
 
         public void LoadContent(ContentManager content)

@@ -40,23 +40,33 @@ namespace Serious_Beards
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            KeyboardState keystate = Keyboard.GetState();
+            //KeyboardState keystate = Keyboard.GetState();
 
-            if(keystate.IsKeyDown(Keys.A) || keystate.IsKeyDown(Keys.W) || keystate.IsKeyDown(Keys.D) || keystate.IsKeyDown(Keys.S))
-            {
-                if(!(strategy is Walk))
-                {
-                    strategy = new Walk(GameObject.transform, animator);
-                }
-                if (keystate.IsKeyDown(Keys.Space))
-                {
-                    strategy = new Attack(animator);
-                }
+            //if(keystate.IsKeyDown(Keys.A) || keystate.IsKeyDown(Keys.W) || keystate.IsKeyDown(Keys.D) || keystate.IsKeyDown(Keys.S))
+            //{
+            //    if(!(strategy is Walk))
+            //    {
+            //        strategy = new Walk(GameObject.transform, animator);
+            //    }
+            //    if (keystate.IsKeyDown(Keys.Space))
+            //    {
+            //        strategy = new Attack(animator);
+            //    }
 
-            }
+            //}
 
 
             base.Update(gameTime);
+        }
+
+        public void Move()
+        {
+            Vector2 translation = Vector2.Zero; //Skaber en vector uden nogen værdier
+            translation += new Vector2(1, 0); //Siger at translation er det samme som en ny vector med (1,0)
+
+            gameObject.transform.Translate(translation*GameWorld.Instance.deltatime*speed);
+
+
         }
 
         /// <summary>
