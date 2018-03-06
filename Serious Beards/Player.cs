@@ -21,7 +21,7 @@ namespace Serious_Beards
         static float attackSpeed;
         Vector2 moveTarget;
         Rectangle attackRectangle;
-        private IAnimationStrategy strategy;
+        
 
         static int money;
         static int points;
@@ -40,20 +40,6 @@ namespace Serious_Beards
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            //KeyboardState keystate = Keyboard.GetState();
-
-            //if(keystate.IsKeyDown(Keys.A) || keystate.IsKeyDown(Keys.W) || keystate.IsKeyDown(Keys.D) || keystate.IsKeyDown(Keys.S))
-            //{
-            //    if(!(strategy is Walk))
-            //    {
-            //        strategy = new Walk(GameObject.transform, animator);
-            //    }
-            //    if (keystate.IsKeyDown(Keys.Space))
-            //    {
-            //        strategy = new Attack(animator);
-            //    }
-
-            //}
 
 
             base.Update(gameTime);

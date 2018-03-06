@@ -43,9 +43,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Animator.cs" />
-    <Compile Include="Attack.cs" />
     <Compile Include="Components.cs" />
-    <Compile Include="IAnimationStrategy.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="CollisionTiles.cs" />
     <Compile Include="Enemy.cs" />
@@ -55,7 +53,6 @@
     <Compile Include="ILoadable.cs" />
     <Compile Include="SpriteRender.cs" />
     <Compile Include="Transform.cs" />
-    <Compile Include="Walk.cs" />
     <Compile Include="Pickup.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
