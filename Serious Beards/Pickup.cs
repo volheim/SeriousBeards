@@ -11,6 +11,8 @@ namespace Serious_Beards
 {
     class Pickup : GameObject
     {
+        Texture2D sprite;
+
         int value;
         int healAmmount;
         Int16 type;
@@ -21,9 +23,9 @@ namespace Serious_Beards
         */
         Int16 weaponIndex;
 
-        public Pickup(Vector2 position, Texture2D sprite, int value, int healAmmount, Int16 type, Int16 weaponIndex) : base(position, sprite)
+        public Pickup(Transform transform, Texture2D sprite, int value, int healAmmount, Int16 type, Int16 weaponIndex) : base()
         {
-            this.position = position;
+            this.Transform = transform;
             this.sprite = sprite;
             this.value = value;
             this.healAmmount = healAmmount;

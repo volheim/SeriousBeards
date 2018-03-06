@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Serious_Beards
 {
-    public class Enemy : Character
+    class Enemy : Character
     {
         float speed;
         int health;
@@ -27,7 +27,7 @@ namespace Serious_Beards
         float shootRange;
         float distanceToPlayer;
 
-        public Enemy(Vector2 position, float speed, int health, int damage, float attackSpeed, Int16 enemyType, float shootRange) : base(position, sprite)
+        public Enemy(Vector2 position, Texture2D sprite, float speed, int health, int damage, float attackSpeed, Int16 enemyType, float shootRange) : base(position, sprite)
         {
             this.position = position;
             this.speed = speed;
@@ -36,7 +36,7 @@ namespace Serious_Beards
             this.attackSpeed = attackSpeed;
             this.enemyType = enemyType;
             this.shootRange = shootRange;
-
+            this.sprite = sprite;
             
         }
 

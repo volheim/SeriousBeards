@@ -9,12 +9,12 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Serious_Beards
 {
-    public class Character : GameObject
+    class Character : GameObject
     {
         GameObject go;
 
-        Vector2 position;
-        Texture2D sprite;
+        public Vector2 position;
+        public Texture2D sprite;
 
         float speed;
         int health;
@@ -24,7 +24,7 @@ namespace Serious_Beards
         Vector2 moveTarget;
         Rectangle attackRectangle;
 
-        public Character(Vector2 position, Texture2D sprite) : base(position, sprite)
+        public Character(Vector2 position, Texture2D sprite) : base()
         {
             this.position = position;
             this.sprite = sprite;

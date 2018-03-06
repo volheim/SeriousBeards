@@ -9,9 +9,11 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Serious_Beards
 {
-    public class Player : Character
+    class Player : Character
     {
-        Vector2 position;
+        GameWorld gw;
+
+        Transform transform;
         Texture2D sprite;
 
         static float speed;
@@ -27,9 +29,10 @@ namespace Serious_Beards
         static int points;
         float invulnerabilityTime;
 
-        public Player(Vector2 position) : base(position, sprite)
+        public Player(Vector2 position, Texture2D sprite) : base(position, sprite)
         {
             this.position = position;
+            this.sprite = sprite;
         } 
         
 
@@ -50,7 +53,7 @@ namespace Serious_Beards
             Vector2 translation = Vector2.Zero; //Skaber en vector uden nogen værdier
             translation += new Vector2(1, 0); //Siger at translation er det samme som en ny vector med (1,0)
 
-            gameObject.transform.Translate(translation*GameWorld.Instance.deltatime*speed);
+            transform.Translate(translation*deltatime*speed);
 
 
         }

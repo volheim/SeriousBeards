@@ -10,11 +10,11 @@ using Microsoft.Xna.Framework.Content;
 
 namespace Serious_Beards
 {
-    class GameObject : GameWorld,Component,ILoadable,IDrawable
+    class GameObject : GameWorld,ILoadable/*,IDrawable*/
     {
         private Transform transform;
         
-        private SpriteRender sprite;
+        private Texture2D sprite;
 
         private List<Component> componentlist; //Skal indeholde de komponeneter der skal loades ud.
 
@@ -29,14 +29,15 @@ namespace Serious_Beards
 
         }
 
-        public Component GetComponent(string component)
+        /*public Component GetComponent(string component)
         {
             
-        }
+        }*/
 
         public GameObject()
         {
             this.transform = new Transform(this, Vector2.Zero);
+            componentlist = new List<Component>();
             AddComponent(transform);
         }
 

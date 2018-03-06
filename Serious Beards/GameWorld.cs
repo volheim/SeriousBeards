@@ -11,9 +11,9 @@ namespace Serious_Beards
     public class GameWorld : Game
     {
         GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
+        public SpriteBatch spriteBatch;
         private List<GameObject> gameObjects;
-        private float deltatime;
+        protected float deltatime;
 
         World world;
 
@@ -40,7 +40,7 @@ namespace Serious_Beards
 
             //Skaber en ny verden
             world = new World();
-
+            gameObjects = new List<GameObject>();
             base.Initialize();
         }
 
@@ -113,7 +113,7 @@ namespace Serious_Beards
 
             foreach(GameObject gameObject in gameObjects)
             {
-                gameObjects.Draw(spriteBatch);
+                gameObject.Draw(gameTime);
             }
             spriteBatch.End();
             // TODO: Add your drawing code here
