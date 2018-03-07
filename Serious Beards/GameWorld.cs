@@ -15,6 +15,24 @@ namespace Serious_Beards
         private List<GameObject> gameObjects;
         protected float deltatime;
 
+        private Camera camera;
+
+        private static int screenHeight;
+
+        private static int screenWidth;
+
+        public static int ScreenHeight
+        {
+            get { return screenHeight; }
+            set { screenHeight = value; }
+        }
+        public static int ScreenWidth
+        {
+            get { return screenWidth; }
+            set { screenWidth = value; }
+        }
+
+
         World world;
 
         public GameWorld()
@@ -34,8 +52,8 @@ namespace Serious_Beards
             // TODO: Add your initialization logic here
 
             //Går ind og kikker på størrelsen af ens GraphicsDevice på den enkelte computer og udvider skærmen til dens bredte og højde.
-            graphics.PreferredBackBufferHeight = GraphicsDevice.DisplayMode.Height;
-            graphics.PreferredBackBufferWidth = GraphicsDevice.DisplayMode.Width;
+            ScreenHeight = graphics.PreferredBackBufferHeight = GraphicsDevice.DisplayMode.Height;
+            ScreenWidth = graphics.PreferredBackBufferWidth = GraphicsDevice.DisplayMode.Width;
             graphics.ApplyChanges();
 
             //Skaber en ny verden
@@ -70,7 +88,7 @@ namespace Serious_Beards
             //GameObject gameObject = new GameObject(); //Laver et nyt gameobject
             gameObjects.Add(new Player(new Vector2(25, 15), Content.Load<Texture2D>("ThreadPool")));
 
-            //go.AddComponent(new SpriteRender(gameObject, "Player", 2));
+            camera = new Camera();
 
             //gameObjects.Add(gameObject);
             // TODO: use this.Content to load your game content here
@@ -96,6 +114,8 @@ namespace Serious_Beards
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+
+            camera.Follow();
             // TODO: Add your update logic here
 
             deltatime = (float)gameTime.ElapsedGameTime.TotalSeconds; //Skal sikre at vores movement er independent af frame rate
@@ -111,7 +131,7 @@ namespace Serious_Beards
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            spriteBatch.Begin();
+            spriteBatch.Begin(transformMatrix: camera.Transform);
             world.Draw(spriteBatch);
 
             Player.player.Draw(spriteBatch);

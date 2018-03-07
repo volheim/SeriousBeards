@@ -29,7 +29,17 @@ namespace Serious_Beards
 
         public Component GetComponent(string component)
         {
-            //Needs to return something
+            Component _return = null;
+            foreach (Component com in componentlist) //Tjekker listen op med componenets 
+            {
+                if (com.GetType().Name == component) //Hvis det der er i vores liste er en componenet skal den retunere det tilbage. 
+                {
+                    _return = com;
+                    break;
+                }
+            }
+
+            return _return;
         }
 
         public GameObject()

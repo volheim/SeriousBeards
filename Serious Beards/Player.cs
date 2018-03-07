@@ -28,11 +28,17 @@ namespace Serious_Beards
         static int points;
         float invulnerabilityTime;
 
+        public Rectangle SpriteRect
+        {
+            get { return spriteRect; }
+            set { SpriteRect = value; }
+        }
+
         public Player(Vector2 position, Texture2D sprite) : base(position, sprite)
         {
             this.position = position;
             this.sprite = sprite;
-            spriteRect = new Rectangle(0, 0, sprite.Width, sprite.Height);
+            SpriteRect = new Rectangle(0, 0, sprite.Width, sprite.Height);
             player = this;
         } 
         
