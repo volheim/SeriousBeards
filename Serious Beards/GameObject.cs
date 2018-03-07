@@ -69,7 +69,7 @@ namespace Serious_Beards
         /// This is called when the game should draw itself.
         /// </summary>
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
-        protected override void Draw(GameTime gameTime)
+        public void Draw(SpriteBatch spriteBatch)
         {
             // TODO: Add your drawing code here
             {
@@ -82,7 +82,7 @@ namespace Serious_Beards
                 }
             }
 
-            base.Draw(gameTime);
+            //base.Draw(GameTime gameTime);
         }
 
     }

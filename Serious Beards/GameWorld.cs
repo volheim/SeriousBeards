@@ -50,6 +50,7 @@ namespace Serious_Beards
         /// </summary>
         protected override void LoadContent()
         {
+            
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
@@ -66,12 +67,14 @@ namespace Serious_Beards
                 { 1,1,1,1,1,1},
             }, 64); //Size er størrelsen på tiles i pixel aka 64 hen a Y aksen og X aksen som bruges i World generation
 
-            GameObject gameObject = new GameObject(); //Laver et nyt gameobject
+            //GameObject gameObject = new GameObject(); //Laver et nyt gameobject
+            gameObjects.Add(new Player(new Vector2(25, 15), Content.Load<Texture2D>("ThreadPool")));
 
-            gameObject.AddComponent(new SpriteRender(gameObject, "Player", 2));
+            //go.AddComponent(new SpriteRender(gameObject, "Player", 2));
 
-            gameObjects.Add(gameObject);
+            //gameObjects.Add(gameObject);
             // TODO: use this.Content to load your game content here
+            base.LoadContent();
         }
 
         /// <summary>
@@ -111,14 +114,16 @@ namespace Serious_Beards
             spriteBatch.Begin();
             world.Draw(spriteBatch);
 
+            Player.player.Draw(spriteBatch);
+
             foreach(GameObject gameObject in gameObjects)
             {
-                gameObject.Draw(gameTime);
+                gameObject.Draw(spriteBatch);
             }
             spriteBatch.End();
             // TODO: Add your drawing code here
 
-            base.Draw(gameTime);
+            
         }
 
     }

@@ -11,10 +11,9 @@ namespace Serious_Beards
 {
     class Player : Character
     {
-        GameWorld gw;
-
         Transform transform;
         Texture2D sprite;
+        Rectangle spriteRect;
 
         static float speed;
         static int health;
@@ -33,6 +32,8 @@ namespace Serious_Beards
         {
             this.position = position;
             this.sprite = sprite;
+            spriteRect = new Rectangle(0, 0, sprite.Width, sprite.Height);
+            player = this;
         } 
         
 
@@ -44,7 +45,7 @@ namespace Serious_Beards
         protected override void Update(GameTime gameTime)
         {
 
-
+            Draw(spriteBatch);
             base.Update(gameTime);
         }
 
@@ -55,19 +56,19 @@ namespace Serious_Beards
 
             transform.Translate(translation*deltatime*speed);
 
-
+            //KeyboardState
         }
 
         /// <summary>
         /// This is called when the game should draw itself.
         /// </summary>
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
-        protected override void Draw(GameTime gameTime)
+        public void Draw(SpriteBatch spriteBatch)
         {
 
             // TODO: Add your drawing code here
-
-            base.Draw(gameTime);
+            spriteBatch.Draw(sprite, position, Color.White);
+            //base.Draw(gameTime);
         }
     }
 }

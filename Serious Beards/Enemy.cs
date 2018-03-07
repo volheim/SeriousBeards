@@ -13,7 +13,7 @@ namespace Serious_Beards
     {
         float speed;
         int health;
-        Vector2 facingDirecction;
+        Vector2 facingDirection;
         int damage;
         float attackSpeed;
         Vector2 moveTarget;
@@ -50,7 +50,9 @@ namespace Serious_Beards
         {
 
             // TODO: Add your update logic here
-
+            facingDirection = position - player.position;
+            facingDirection = Vector2.Normalize(facingDirection);
+            position = facingDirection * speed * deltatime;
             base.Update(gameTime);
         }
 
@@ -58,13 +60,13 @@ namespace Serious_Beards
         /// This is called when the game should draw itself.
         /// </summary>
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
-        protected override void Draw(GameTime gameTime)
+        void Draw(SpriteBatch spriteBatch)
         {
 
 
             // TODO: Add your drawing code here
 
-            base.Draw(gameTime);
+            //base.Draw(gameTime);
         }
     }
 }
