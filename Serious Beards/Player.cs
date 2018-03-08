@@ -33,7 +33,7 @@ namespace Serious_Beards
             this.position = position;
             this.sprite = sprite;
             spriteRect = new Rectangle(0, 0, sprite.Width, sprite.Height);
-            player = this;
+        //    player = this;
         } 
         
 
@@ -44,13 +44,15 @@ namespace Serious_Beards
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-
+            Move();
             Draw(spriteBatch);
             base.Update(gameTime);
         }
 
         public void Move()
         {
+
+
             Vector2 translation = Vector2.Zero; //Skaber en vector uden nogen værdier
             translation += new Vector2(1, 0); //Siger at translation er det samme som en ny vector med (1,0)
 
@@ -63,7 +65,7 @@ namespace Serious_Beards
         /// This is called when the game should draw itself.
         /// </summary>
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
-        public void Draw(SpriteBatch spriteBatch)
+        public override void Draw(SpriteBatch spriteBatch)
         {
 
             // TODO: Add your drawing code here

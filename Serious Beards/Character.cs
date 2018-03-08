@@ -15,7 +15,6 @@ namespace Serious_Beards
 
         public Vector2 position;
         public Texture2D sprite;
-        public static Player player;
 
         float speed;
         int health;
@@ -49,7 +48,7 @@ namespace Serious_Beards
         /// This is called when the game should draw itself.
         /// </summary>
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
-        void Draw(SpriteBatch spriteBatch)
+        public override void Draw(SpriteBatch spriteBatch)
         {
             // TODO: Add your drawing code here
 

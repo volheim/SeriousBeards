@@ -50,9 +50,10 @@ namespace Serious_Beards
         {
 
             // TODO: Add your update logic here
-            facingDirection = position - player.position;
+            ///facingDirection = position - player.position;
             facingDirection = Vector2.Normalize(facingDirection);
             position = facingDirection * speed * deltatime;
+            Draw(spriteBatch);
             base.Update(gameTime);
         }
 
@@ -60,7 +61,7 @@ namespace Serious_Beards
         /// This is called when the game should draw itself.
         /// </summary>
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
-        void Draw(SpriteBatch spriteBatch)
+        public override void Draw(SpriteBatch spriteBatch)
         {
 
 

@@ -13,6 +13,8 @@ namespace Serious_Beards
         GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
         private List<GameObject> gameObjects;
+        private List<Enemy> enemyList;
+        static Player player;
         protected float deltatime;
 
         World world;
@@ -41,6 +43,7 @@ namespace Serious_Beards
             //Skaber en ny verden
             world = new World();
             gameObjects = new List<GameObject>();
+            enemyList = new List<Enemy>();
             base.Initialize();
         }
 
@@ -68,7 +71,9 @@ namespace Serious_Beards
             }, 64); //Size er størrelsen på tiles i pixel aka 64 hen a Y aksen og X aksen som bruges i World generation
 
             //GameObject gameObject = new GameObject(); //Laver et nyt gameobject
-            gameObjects.Add(new Player(new Vector2(25, 15), Content.Load<Texture2D>("ThreadPool")));
+            player = new Player(new Vector2(25, 15), Content.Load<Texture2D>("ThreadPool"));
+
+            enemyList.Add(new Enemy(new Vector2(100, 50), Content.Load<Texture2D>("ThreadPool"), 5, 3, 1, 1.5f, 1, 0));
 
             //go.AddComponent(new SpriteRender(gameObject, "Player", 2));
 
@@ -98,6 +103,11 @@ namespace Serious_Beards
 
             // TODO: Add your update logic here
 
+            foreach(Enemy enemy in enemyList)
+            {
+                enemy.Update(gameTime);
+            }
+
             deltatime = (float)gameTime.ElapsedGameTime.TotalSeconds; //Skal sikre at vores movement er independent af frame rate
 
             base.Update(gameTime);
@@ -114,11 +124,11 @@ namespace Serious_Beards
             spriteBatch.Begin();
             world.Draw(spriteBatch);
 
-            Player.player.Draw(spriteBatch);
+            player.Draw(spriteBatch);
 
-            foreach(GameObject gameObject in gameObjects)
+            foreach(Enemy enemy in enemyList)
             {
-                gameObject.Draw(spriteBatch);
+                enemy.Draw(spriteBatch);
             }
             spriteBatch.End();
             // TODO: Add your drawing code here

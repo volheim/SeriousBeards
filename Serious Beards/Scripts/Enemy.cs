@@ -50,7 +50,7 @@ namespace Serious_Beards
         {
 
             // TODO: Add your update logic here
-
+            Draw();
             base.Update(gameTime);
         }
 
