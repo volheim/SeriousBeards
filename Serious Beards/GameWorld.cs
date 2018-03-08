@@ -17,6 +17,24 @@ namespace Serious_Beards
         static Player player;
         protected float deltatime;
 
+        private Camera camera;
+
+        private static int screenHeight;
+
+        private static int screenWidth;
+
+        public static int ScreenHeight
+        {
+            get { return screenHeight; }
+            set { screenHeight = value; }
+        }
+        public static int ScreenWidth
+        {
+            get { return screenWidth; }
+            set { screenWidth = value; }
+        }
+
+
         World world;
 
         public GameWorld()
@@ -36,8 +54,8 @@ namespace Serious_Beards
             // TODO: Add your initialization logic here
 
             //Går ind og kikker på størrelsen af ens GraphicsDevice på den enkelte computer og udvider skærmen til dens bredte og højde.
-            graphics.PreferredBackBufferHeight = GraphicsDevice.DisplayMode.Height;
-            graphics.PreferredBackBufferWidth = GraphicsDevice.DisplayMode.Width;
+            ScreenHeight = graphics.PreferredBackBufferHeight = GraphicsDevice.DisplayMode.Height;
+            ScreenWidth = graphics.PreferredBackBufferWidth = GraphicsDevice.DisplayMode.Width;
             graphics.ApplyChanges();
 
             //Skaber en ny verden
@@ -75,7 +93,7 @@ namespace Serious_Beards
 
             enemyList.Add(new Enemy(new Vector2(100, 50), Content.Load<Texture2D>("ThreadPool"), 5, 3, 1, 1.5f, 1, 0));
 
-            //go.AddComponent(new SpriteRender(gameObject, "Player", 2));
+            camera = new Camera();
 
             //gameObjects.Add(gameObject);
             // TODO: use this.Content to load your game content here
@@ -101,6 +119,8 @@ namespace Serious_Beards
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
+
+            camera.Follow();
             // TODO: Add your update logic here
 
             foreach(Enemy enemy in enemyList)
@@ -121,7 +141,7 @@ namespace Serious_Beards
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            spriteBatch.Begin();
+            spriteBatch.Begin(transformMatrix: camera.Transform);
             world.Draw(spriteBatch);
 
             player.Draw(spriteBatch);
