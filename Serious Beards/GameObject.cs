@@ -12,9 +12,11 @@ namespace Serious_Beards
 {
     class GameObject : GameWorld
     {
+        private Texture2D sprite;
+        public Vector2 position;
         private Transform transform;
 
-        private List<Component> componentlist; //Skal indeholde de komponeneter der skal loades ud.
+        public List<Component> componentlist; //Skal indeholde de komponeneter der skal loades ud.
 
         public Transform Transform
         {
@@ -27,8 +29,13 @@ namespace Serious_Beards
 
         }
 
-        public Component GetComponent(string component)
+        /*public Component GetComponent(string component)
         {
+<<<<<<< HEAD
+            
+            //Needs to return something
+        }*/
+=======
             Component _return = null;
             foreach (Component com in componentlist) //Tjekker listen op med componenets 
             {
@@ -41,6 +48,7 @@ namespace Serious_Beards
 
             return _return;
         }
+>>>>>>> dbcf067861182a0ce41761114c72e7e2bee28699
 
         public GameObject()
         {
@@ -77,7 +85,7 @@ namespace Serious_Beards
         /// This is called when the game should draw itself.
         /// </summary>
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
-        public void Draw(SpriteBatch spriteBatch)
+        public virtual void Draw(SpriteBatch spriteBatch)
         {
             // TODO: Add your drawing code here
             {
@@ -89,8 +97,8 @@ namespace Serious_Beards
                     }
                 }
             }
-
-            //base.Draw(GameTime gameTime);
+            spriteBatch.Draw(sprite, position, Color.White);
+            //base.Draw(SpriteBatch spriteBatch);
         }
 
     }
