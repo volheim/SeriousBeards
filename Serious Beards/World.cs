@@ -11,7 +11,7 @@ namespace Serious_Beards
     class World
     {
         private List<CollisionTiles> collisionTiles = new List<CollisionTiles>();
-        //Kan bruges til kamera funktion senere
+        
         private int width; //Skal bruges til bredete af tiles
         private int height; //Skal bruges til højde af tiles
 
@@ -48,7 +48,7 @@ namespace Serious_Beards
                     //Går ind og skaber en ny tile i vores liste med collision tiles hvis tallet er størrer end 0 i vores Array
                     //Den tilføjer en ny rektangel som er den placering og ganger de forskellige X og Y værder op med tile size.
                     //Alt i alt er det for at sikre at tiles er lige store.
-                    //Grundent til at number er ligmed 0 er for at sikre vi har en form for tile man kan gå på.
+                    //Number skal være større end 0 for at tegne en form for tile. Det betyder at de steder hvor der står 0 er der ingen tile en men baggrund istedet.
                     if (number > 0)
                         collisionTiles.Add(new CollisionTiles(number, new Rectangle(x * size, y * size, size, size)));
                     width = (x + 1) * size;

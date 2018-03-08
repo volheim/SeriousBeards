@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Serious_Beards
 {
-    class Animator
+    class ColideCheck
     {
     }
 }

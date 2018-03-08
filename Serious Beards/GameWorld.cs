@@ -32,7 +32,6 @@ namespace Serious_Beards
             set { screenWidth = value; }
         }
 
-
         World world;
 
         public GameWorld()
@@ -56,8 +55,8 @@ namespace Serious_Beards
             ScreenWidth = graphics.PreferredBackBufferWidth = GraphicsDevice.DisplayMode.Width;
             graphics.ApplyChanges();
 
-            //Skaber en ny verden
-            world = new World();
+            
+            world = new World();//Skaber en ny verden
             gameObjects = new List<GameObject>();
             base.Initialize();
         }
