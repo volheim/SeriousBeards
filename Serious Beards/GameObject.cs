@@ -29,13 +29,8 @@ namespace Serious_Beards
 
         }
 
-        /*public Component GetComponent(string component)
+        public Component GetComponent(string component)
         {
-<<<<<<< HEAD
-            
-            //Needs to return something
-        }*/
-=======
             Component _return = null;
             foreach (Component com in componentlist) //Tjekker listen op med componenets 
             {
@@ -48,7 +43,8 @@ namespace Serious_Beards
 
             return _return;
         }
->>>>>>> dbcf067861182a0ce41761114c72e7e2bee28699
+
+
 
         public GameObject()
         {

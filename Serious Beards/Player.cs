@@ -38,13 +38,9 @@ namespace Serious_Beards
         {
             this.position = position;
             this.sprite = sprite;
-<<<<<<< HEAD
-            spriteRect = new Rectangle(0, 0, sprite.Width, sprite.Height);
-        //    player = this;
-=======
+
             SpriteRect = new Rectangle(0, 0, sprite.Width, sprite.Height);
             player = this;
->>>>>>> dbcf067861182a0ce41761114c72e7e2bee28699
         } 
         
 
