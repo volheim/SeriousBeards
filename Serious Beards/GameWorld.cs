@@ -119,7 +119,7 @@ namespace Serious_Beards
                 Exit();
 
 
-            camera.Follow();
+            //camera.Follow();
             // TODO: Add your update logic here
 
             foreach(Enemy enemy in enemyList)

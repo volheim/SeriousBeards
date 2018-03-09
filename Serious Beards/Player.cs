@@ -40,7 +40,7 @@ namespace Serious_Beards
             this.sprite = sprite;
 
             SpriteRect = new Rectangle(0, 0, sprite.Width, sprite.Height);
-            player = this;
+            //player = this;
         } 
         
 
